@@ -1,11 +1,13 @@
 # Terminologia ricorrente
-- Public
-- Private 
-- Hybrid
+- [Public](#public-cloud)
+- [Private](#private-cloud) 
+- [Hybrid](#hybrid-cloud)
+- [Multi Cloud](#multi-cloud)
+
 
 ## Public Cloud
 
-Quando "hosti" tutto nel cloud.
+Quando "hosti" tutto nel cloud, nel datacenter di un altro.
 - Quindi non hai necessità di un datacenter
 - Nessun capitale iniziale necessario, (diciamo)
 - Possibilità di scalare molto e velocemente 
@@ -23,7 +25,7 @@ Quando "hosti" tutto nel tuo datacenter.
 
 ## Hybrid Cloud
 
-Combinazione di entrambi
+Combinazione di entrambi private-public
 - Utilizzo di Public Cloud per alcuni carichi di lavoro e Private per altri
 - Ad esempio utilizzi Google Cloud Dataflow per processare un data stream (come i logs) generati dalle applicazioni on-premise. O connettere le applicazioni on-premise al Google Cloud SQL database
 - Sicuramente vi è il vantaggio di avere flessibilità, scegliento cosa usare e dove
@@ -31,11 +33,11 @@ Combinazione di entrambi
 
 
 # Multi Cloud
-Utilizzo di piattaforme Cloud diverse, con o senza un'infrastruttura on-premise.
+Utilizzo di piattaforme Cloud diverse (AWS,AZURE,GCP), con o senza un'infrastruttura on-premise.
 - Sicuramente ancora maggiore flessibilità ma anche 
 - Maggiore complessità 
 
-## Verso Hybrid Cloud in GCP, 3 modi
+## Verso Hybrid Cloud in GCP, 3 modi per realizzarlo
 - Cloud VPN consente di connettere la rete on-premise alla rete GCP
     - utilizza IPSec VPN Tunnel
     - il traffico viaggi attraverso internet (pubblico)
@@ -59,8 +61,9 @@ Utilizzo di piattaforme Cloud diverse, con o senza un'infrastruttura on-premise.
 -   Direct Peering 
     - Path diretto da on-premises network ai servizi Google
     - Non è un GCP service
+ 
+    N.B Direct Peering NON RACCOMANDATA 
 
-    N.B NON RACCOMANDATA 
+Note
 
-    Note
 N.B Per le immagini, il path qui presente utilizza il forwardslash, windows utilizza il backslash. Se non vengono visualizzate il problema potrebbe essere legato a quello

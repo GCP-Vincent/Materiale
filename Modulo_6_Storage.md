@@ -144,4 +144,5 @@ Opzioni:
 ![transfer_appliance](Images/transfer_appliance.png)
 
 Note
+
 N.B Per le immagini, il path qui presente utilizza il forwardslash, windows utilizza il backslash. Se non vengono visualizzate il problema potrebbe essere legato a quello

@@ -59,7 +59,11 @@ Se un certo principal, su una specifica risorsa, ha un certo tipo di permesso
 
 **SERVICE ACCOUNTS**
 
- Sono creati per **concedere l'accesso alle applicazioni** che vogliono accedere ai servizi su GCP. Sono identificati da un indirizzo email (Es. id-compute@developer.gserviceaccount.com).
+ Sono creati per **concedere l'accesso alle applicazioni** che vogliono accedere ai servizi su GCP. 
+ 
+ Sono identificati da un indirizzo email 
+ 
+ (Es. id-compute@developer.gserviceaccount.com).
 - La voce è presente sempre in IAM & Admin.
 - Alcuni sono creati in automatico alla creazione di un servizio
 - No password, ma public e private RSA key pair
@@ -83,8 +87,8 @@ Idea: creazione service account da associare ad una vm, attraverso la vm creo un
 
 Creo prima un service account in cui definisco come Role Compute Instance Admin (quindi full control of Compute Engine instance resources, posso creare vm), (manca il permesso sullo storage, quindi mi aspetto un errore). Successivamente durante la creazione della vm, associo questo service account alla vm, accendo la vm, mi collego tramite ssh, ed eseguo un comando per creare un bucket (deve avere un nome unico globalmente), che fallirà perchè non ho i permessi associati.
 
-```
-gsutil mb gs://bucket-ofvins          #mb sta per make bucket
+```bash
+gsutil mb gs://bucket-ofvins         # mb sta per make bucket
 ```
 
  Vado quindi in GCP, sezione IAM di IAM & Admin, per editare il service account creato. Gli aggiungo il Role Storage Admin (per avere il full control sulle risorse GCS). La modifica è instantanea, quindi rieseguendo il comando verrà creato il bucket su GCS, visualizzabile da STORAGE su GCP
@@ -127,25 +131,29 @@ Esistono **due altre modalità**
     **Differenze tra: Cloud IAM e Identity Platform**
     -   **Cloud IAM**: Per autorizzazioni su dipendenti e Partners
 
-                   Controllo sull'accesso alle risorse create su GCP
-                   Member, Roles, Policy e Service Accounts
+                   Controllo sull'accesso alle risorse create su GCP: Member, Roles, Policy e Service Accounts
     
     - **Identity Platform**: Customer identity and access management (CIAM)
 
         - **Autenticazione e autorizzazione per gli utenti delle tue applicazioni e servizi**
 
-        - web & mobile apps (iOS, Android)
+        - Web & mobile apps (iOS, Android)
         - **Molteplici metodi di autenticazione** (SAML, OIDC, email/password, phone, social ecc)
         - Features: User sign-up (registrazione) e sign-in (accesso), **MFA** ecc
          - Rappresenta un upgrade del servizio legacy Firebase Authentication
          - Si integra molto bene con Identity-Aware Proxy (per Cloud Run ecc)
     
 **Scenari di utilizzo**
-- Un applicazione su GCE VM necessita l'accesso al cloud storage?        Cloud IAM->Service Account
-- Un utente di un'azienda vuole caricare oggetti su Cloud Storage buckets? Cloud IAM
-- Voglio gestire end users per una mia aplicazione (web, ecc)?                Identity Platform   
-- Voglio abilitare il Login tramite facebook per la mia applicazione?   Identity Platform
-- Voglio creare registrazione e accesso utente per la mia applicazione ? Identity Platform
+- Un applicazione su GCE VM necessita l'accesso al cloud storage?       
+ Cloud IAM -> Service Account
+- Un utente di un'azienda vuole caricare oggetti su Cloud Storage buckets? 
+Cloud IAM
+- Voglio gestire end users per una mia aplicazione (web, ecc)?                
+Identity Platform   
+- Voglio abilitare il Login tramite facebook per la mia applicazione?   
+Identity Platform
+- Voglio creare registrazione e accesso utente per la mia applicazione ? 
+Identity Platform
 
 
 
@@ -164,12 +172,11 @@ Occorre ricordare che **IAM** si focalizza su Who
 **Organization Policy** si focalizza su What
     - cosa può essere fatto su specifiche risorse?
 
-        N.B Le Organization Policies sono prioritarie sulle IAM, 
-        quindi se vi è il divieto di creare risorse, l'utente anche se potrebbe farlo, 
-        non lo potrà fare
+        N.B Le Organization Policies sono prioritarie sulle IAM. Quindi se vi è il divieto di creare risorse, l'utente anche se potrebbe farlo, non lo potrà fare
 
 **Ne esistono un sacco predefinite già**
 
 
 Note
+
 N.B Per le immagini, il path qui presente utilizza il forwardslash, windows utilizza il backslash. Se non vengono visualizzate il problema potrebbe essere legato a quello

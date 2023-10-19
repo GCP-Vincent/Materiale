@@ -2,11 +2,11 @@
 
 ## Database Categorie
 
-- [[Relational (OLTP e OLAP)]](#relational-db)
-- [[Document]](#)
-- [[Key Value]](#)
-- [[Graph]](#)
-- [[In memory]](#in-memort)
+- [Relational (OLTP e OLAP)](#relational-db)
+- [Document](#)
+- [Key Value](#)
+- [Graph](#)
+- [In memory](#in-memory)
 
 Nella scelta sicuramente influiscono **alcuni fattori**
 - schema fisso o flessibile
@@ -66,22 +66,26 @@ Creata l'istanza, creo il database, indicando il nome.
 All'interno di esso potrò definire le tables.
 
 Per lavorare con il database, devo connettermi all'istanza creata, ho diverse possibilità, scelgo tramite Cloud Shell. 
+```sql
 
-- gcloud sql connect "nomeistanza" --user=root --quiet
+- gcloud sql connect "nomeistanza" --user=root --quiet 
 
 Chiaramente, come per gli altri servizi, occorre abilitare le sue API.
 
+/*
 Una volta loggato inserendo la password definita in precedenza, specifico che voglio utilizzare il database creato in precedenza con il comando
+*/
 - use "nomeDB"
 
+/*
 e creo all'interno una table, inserisco dei dati e ne visualizzo il contenuto
+*/
 
 - create table user (id integer, username varchar(30));
 - insert into user values (10, 'Ferraro');
-- describe user;        -> per avere una panoramica della table
-- select * from user;   -> per estrapolare i records
-
-
+- describe user;      -- per avere una panoramica della table
+- select * from user;    -- per estrapolare i records
+```
 
 ## Demo Cloud Spanner, lista comandi utili 
 
@@ -173,4 +177,5 @@ Definire Collection(collezione di Document/Collection) e Document (campo-valore)
 Si utilizza per caching, session managemetn, gaming leader boars(classifiche real time), applicazioni geospaziali
 
 Note
+
 N.B Per le immagini, il path qui presente utilizza il forwardslash, windows utilizza il backslash. Se non vengono visualizzate il problema potrebbe essere legato a quello
