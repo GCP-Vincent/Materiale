@@ -61,3 +61,6 @@ Utilizzo di piattaforme Cloud diverse, con o senza un'infrastruttura on-premise.
     - Non è un GCP service
 
     N.B NON RACCOMANDATA 
+
+    Note
+N.B Per le immagini, il path qui presente utilizza il forwardslash, windows utilizza il backslash. Se non vengono visualizzate il problema potrebbe essere legato a quello

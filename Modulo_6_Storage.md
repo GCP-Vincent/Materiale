@@ -51,7 +51,7 @@ Questi files chiaramente sono condivisi su diversi virtual servers
 Quindi tipicamente **tanti devices Block Storage** connessi ad **tanti virtual servers**
 
 
-![file_storage](Images\File_storage.png)
+![file_storage](Images/File_storage.png)
 
 ## **In GCP**
  **Filestore**: High Performace File Storage 
@@ -94,7 +94,7 @@ Cloud Storage è il più **popolare**, **flessibile** e **poco costoso** servizi
 
 Posso definire questa per singolo oggetto, se non ne viene indicata una allora di default si applica quella del bucket
 
-![storage_classes](Images\Storage_classes_comparison.png)
+![storage_classes](Images/Storage_classes_comparison.png)
 
 Una volta creato il **Bucket**, posizionandomi in esso posso fare drag and drop di ciò che voglio caricare
 
@@ -141,4 +141,7 @@ Opzioni:
     - oppure
     - Il trasferimento online richiede più di 1 settimana
 
-![transfer_appliance](Images\transfer_appliance.png)
+![transfer_appliance](Images/transfer_appliance.png)
+
+Note
+N.B Per le immagini, il path qui presente utilizza il forwardslash, windows utilizza il backslash. Se non vengono visualizzate il problema potrebbe essere legato a quello

@@ -8,7 +8,7 @@
 
 - [Billing Accounts](#billing-accounts)
 
-![gerarchia_GCP](Images\gerarchia_GCP.png)
+![gerarchia_GCP](Images/gerarchia_GCP.png)
 
 ## Organization
 Un organization può contenere diverse folders
@@ -54,3 +54,5 @@ E' possibile espostare i dati di fatturazione verso:
 - Big Query (per visualizzare meglio)
 - Cloud Storage (per archiviare)
 
+Note
+N.B Per le immagini, il path qui presente utilizza il forwardslash, windows utilizza il backslash. Se non vengono visualizzate il problema potrebbe essere legato a quello

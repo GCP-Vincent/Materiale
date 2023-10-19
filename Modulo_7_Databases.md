@@ -117,7 +117,7 @@ Il salvataggio per colonne (OLAP) su diversi nodi di un cluster consente di aver
 
 Le colonne contengono dati simili, quindi è possibile comprimere i dati. Inoltre salvando le colonne su nodi diversi ho maggiore velocità di lettura e scrittura.
 
-![OLAP_OLTP](Images\OLAP_vs_OLTP.png)
+![OLAP_OLTP](Images/OLAP_vs_OLTP.png)
 
 ---
 # NoSQL Databases
@@ -172,10 +172,5 @@ Definire Collection(collezione di Document/Collection) e Document (campo-valore)
 
 Si utilizza per caching, session managemetn, gaming leader boars(classifiche real time), applicazioni geospaziali
 
-
-
-
-
-
-
-
+Note
+N.B Per le immagini, il path qui presente utilizza il forwardslash, windows utilizza il backslash. Se non vengono visualizzate il problema potrebbe essere legato a quello

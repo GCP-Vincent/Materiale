@@ -215,3 +215,5 @@ Avendo diverse revisions, del mio servizio (microservizio), posso decidere come 
 
 ## Anhtos -> per eseguire cluster Kubernetes dove voglio
 
+Note
+N.B Per le immagini, il path qui presente utilizza il forwardslash, windows utilizza il backslash. Se non vengono visualizzate il problema potrebbe essere legato a quello

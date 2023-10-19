@@ -100,7 +100,7 @@ gsutil mb gs://bucket-ofvins          #mb sta per make bucket
     - Il primo può rilasciare una nuova versione ma non cambiare il traffico
     - Il secondo può cambiare il traffico ma non rilasciare una nuova versione
 
-- ****Monitoraggio continuo**: Cloud Audit Logs per controllare cambiamenti e accessi
+- **Monitoraggio continuo**: Cloud Audit Logs per controllare cambiamenti e accessi
 - **Utilizzare Groups** quando possibile: facilita la gestione
 
 # User Identity Management in Google Cloud
@@ -169,3 +169,7 @@ Occorre ricordare che **IAM** si focalizza su Who
         non lo potrà fare
 
 **Ne esistono un sacco predefinite già**
+
+
+Note
+N.B Per le immagini, il path qui presente utilizza il forwardslash, windows utilizza il backslash. Se non vengono visualizzate il problema potrebbe essere legato a quello

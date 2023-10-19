@@ -58,3 +58,5 @@ Se le VMs sono fuori da GCP occorre:
 2. Migrare le GCE VMs in containers attraverso Migrate for Anthos e GKE
 
 
+Note
+N.B Per le immagini, il path qui presente utilizza il forwardslash, windows utilizza il backslash. Se non vengono visualizzate il problema potrebbe essere legato a quello
