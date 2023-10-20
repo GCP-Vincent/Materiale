@@ -31,16 +31,17 @@ Per averne uno fisso, occorre crearlo e collegarlo. **Static IP Address**. Anche
 
 ## STARTUP SCRIPT - INSTANCE TEMPLATE - CUSTOM IMAGE
 
-Ho diverse opzioni per creare un'instanza di una VM e settere atumaticamente delle configurazioni.  
+Ho diverse opzioni per creare un'instanza di una VM e settere automaticamente delle configurazioni.  
 
-**Startup script**: Nella creazione di un'istanza di VM, tramite Compute Engine, si va a definire nel campo che trovo in, MANAGEMENT-> SECURITY -> DISKS -> NETWORKING -> SOLE TENANCY, (potrebbe cambiare col tempo il front-end), definisco lo script che voglio fare eseguire al bootstrap (Automation di Management) 
+### Startup script
+ Nella creazione di un'istanza di VM, tramite Compute Engine, si va a definire nel campo che trovo in, MANAGEMENT-> SECURITY -> DISKS -> NETWORKING -> SOLE TENANCY, (potrebbe cambiare col tempo il front-end), definisco lo script che voglio fare eseguire al bootstrap (Automation di Management) 
 
 N.B 
 
 Nell'utilizzo di script utilizzare ricordarsi il -y per le richieste di conferma
 
 
-**Instance Template** 
+### Instance Template 
 
 Permettono di definire un modello, in cui definisco tutte le caratteristiche che la mia macchina deve avere (compresi script ecc). E' molto più veloce.
 
@@ -57,7 +58,7 @@ Il nome della VM avrà la stessa radice del template seguito dal numero di creaz
 Sorge da queste due soluzioni un piccolo problema. Installare OS patches o software all'avvio della VM, chiaramente aumenta il tempo di boot.
 La soluzione è definire una **Custom Image** con tutto il necessario già installato. 
 
-**Custom Image**
+### Custom Image
 
 - Può essere condivisa su più progetti
 - E' buona norma deprecare quelle vecchie
@@ -79,8 +80,7 @@ Segue demo
 ## Scontistiche di GCP
 ### Sustained use discounts -> sconti per utilizzo sostenuto
 
-Vi sono degli sconti, applicati in automatico, in base all'uso delle VM
-Istanze create tramite **Compute Engine, Google Kubernetes Engine**
+Vi sono degli sconti, applicati in automatico, in base all'uso delle VM create tramite **Compute Engine, Google Kubernetes Engine**
 
 Non sono supportate alcune tipologie di macchine, come le E2 e A2
 
@@ -178,10 +178,68 @@ Ripasso:
 - Committed use discounts: sconti automatici per workloads il cui uso è previso da 1 a 3 anni. Non editabili
 
 - Preemptible VMs
-    - short-lived cheaper (fino a 80%). Limite running 24 ore, stoppabili da GCP
+    - short-lived cheaper (fino a 80%): limite running 24 ore, stoppabili da GCP
     - spot: senza limite di running (no 24 ore)
 
 - Sole-Tenant node: per hw dedicato. Stesso host per ogni VMs
+
+## Instance Groups
+
+Oggetto che consente di creare un gruppo di VMs, gestite come singola entità
+
+Due tipologie:
+- **Managed**: VMs identiche create usando un template (MIG)
+    - features: autoscaling, auto healing, managed releases
+    
+    ![Alt text](Images/MIG.png)
+- **Unmanaged**: VMs differenti
+    - non offrono le features del MIG
+
+    ![Alt text](Images/Unmanaged.png)
+
+    
+
+Entrambe le due tipologie possono essere Zonal or Regional, posso creare nella stessa Zone, in Zones diverse, in Regions diverse (HA)
+
+Vediamo le due tipologie nel dettaglio
+
+### Managed Instance Gruops (MIG)
+- identiche VMs create usando lo stesso instance template
+- caratteristiche principali:
+    - avere un certo numero stabilito di instanze -> se una fallisce viene ricreata
+    - rilevare fallimenti, usando health checks(auto healing), e sopperire ad essi
+    - aumentare o diminuire il numero di instanze in base al carico (auto scaling)
+    - aggiungere un Load Balancer per distribuire il carico
+    - creare le istanze in Zones diverse, o nella stessa zone. 
+    - rilascio di nuove versioni senzo downtime
+        - rolling updates: rilascio nuova versione step-by-step. Gradualmente ne aggiorno una, poi un'altra ecc
+        - canary deployment: testo una nuova versione su un gruppo ristretto di istanze prima di farlo sul gruppo intero (canarino miniere)
+
+    (Regional MIGs >> Zonal MIGs, in termini di HA)  Il nome potrebbe ingannare  
+
+    Zonal MIG -> singola zona
+
+    Regional MIG -> diverse zone ma nella stessa Region 
+
+Segue Link ->   [Creazione MIG](Demo/Demo_MIG.md)
+
+
+## Google Cloud Load Balancing 
+
+Servizio che distribuisce il traffico in VMs che si trovano in una o più Regions.
+- Servizio gestito da Googel Cloud
+    - assicura quindi alta disponibilità
+    - autoscale per gestire enorme carico
+    - può essere public (verso internet), o private (interno)
+
+- Tipologie
+    - External (HTTPS) - Internal (HTTPS)
+    - SSL Proxy - TCP Proxy
+    - External Network TCP/UDP - Internal TCP/UDP
+
+Segue Link ->  [Creazione Load Balancer](Demo/Demo_Load_Balancer.md)
+
+
 Note
 
 N.B Per le immagini, il path qui presente utilizza il forwardslash /, windows utilizza il backslash \ . Se non vengono visualizzate il problema potrebbe essere legato a quello 

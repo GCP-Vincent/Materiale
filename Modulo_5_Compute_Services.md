@@ -51,15 +51,18 @@ App Engine, parliamo di PAAS, meno flessibilità, ma minore responsabilità
 ----
 
 ## Demo App Engine, lista comandi utili
-[Demo App Engine](Demo/Demo_App_Engine.md)
+Segue Link ->  [Demo App Engine](Demo/Demo_App_Engine.md)
+Altri comandi utili
 ```bash
 - gcloud config set project "project_id"    # set progetto
 - gcloud app deploy              # per deploy applicazione 
 - gcloud app services list       # listato servizi
 - gcloud app versions list       # listato versioni servizio
 - gcloud app instances list      # listato istanze
-- gcloud app deploy --version="version_name"  # deploy versione specifica
-- gcloud app browse         # listato url "attivo", che eroga
+
+# deploy versione specifica, per efficienza vengono caricate solo le differenze
+- gcloud app deploy --version="version_name"  
+- gcloud app browse                           # listato url "attivo", che eroga
 - gcloud app browse --version "version_name"  # url 
 
 ```
