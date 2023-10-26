@@ -16,20 +16,20 @@ Tutti i più importanti Google Cloud Services
  Consente di fare il **deploy** e **scalare** le **applicazioni** in GCP
 
  Supporta una moltitudine di linguaggi: Go, Java, .NET, PHP, Python, Ruby ecc
+
  Consente di connettersi facilmente con altri servizi di GCP com (Cloud SQL etc)
  
- **Pagamento** per risorse **provisioniate**
+ **Paghi in base** alle risorse **provisioniate**
 
  Features:
 
 - **Automatic load balancing**  & **Auto scaling** (delle applicazioni deployate) 
-- **Managed Platform update** & **Application health monitoring**, aggiornamento e monitoraggio,
+- **Managed Platform update** & **Application health monitoring**, aggiornamento e monitoraggio
 - **Application versioning**, avere diverse versioni, **Traffic splitting**, indicare dove smistare il traffico sulle diverse versioni
 
 **Compute Engine vs App Engine**
 
-Compute Engine, parliamo di un IAAS, offre più flessibilità ma maggiore Responsabilità. Scelta Image, installare software, scelta hw, accessi e permessi più specifici (Certificates/Firewalls),
-disponibilità
+Compute Engine, parliamo di un IAAS, offre più flessibilità ma maggiore responsabilità: celta della Image, installare software, scelta hw, accessi e permessi più specifici (Certificates/Firewalls), gestione della disponibilità
 
 App Engine, parliamo di PAAS, meno flessibilità, ma minore responsabilità
 
@@ -38,7 +38,7 @@ App Engine, parliamo di PAAS, meno flessibilità, ma minore responsabilità
 **App Engine Environments**
 
 **Standard** -> applicazioni run in un **language specific sandboxes**
-- **V1** per supporto a Java, Python, PHP, Go (old versioni)
+- **V1** per supporto a Java, Python, PHP, Go (old versions)
 - **V2** per supporto a Java, Python, PHP, Node.js, Ruby, Go (nuove versioni), consigliata
 - Completo isolamento con OS/Disk
 - Supporto per **scale down to Zero istanze**. Quindi se non ho traffico posso avere zero istanze running, meno costi
@@ -72,7 +72,7 @@ Altri comandi utili
 
 Kubernetes rappresenta lo strumento open source più famoso per orchestrare containers, GKE è il servizio gestito offerto da GCP per Kubernetes.
 
-K8s permette di gestire un cluster, un insieme di nodi, inclusi gli aggiornamenti.
+K8s, nomignolo di Kubernetes, permette di gestire un cluster, un insieme di nodi, inclusi gli aggiornamenti.
 
 Offre le più importanti features per orchestrare containers:
 - Auto scaling
@@ -85,7 +85,7 @@ Offre le più importanti features per orchestrare containers:
 
 - Pod and Cluster Autoscaling (aggiungere e togliere nodi)
 - Cloud Logging e Cloud Monitoring 
-- Container-Optimized OS, un OS costruito da Google
+- Container-Optimized OS, un OS costruito da Google 
 - Auto-upgrade 
 
 
@@ -105,6 +105,7 @@ Consente di **eseguire codice in risposta ad un evento**
 Risponde alla necessità di voler eseguire del codice quando accade un evento particolare, come il caricamento di un file su Cloud Storage, un error log scritto in Cloud Logging ecc
 
 Codice scritto in Node.js, Python, Go, Java, .NET e Ruby
+
 Nessun problema di scalabilità
 
 - **Pay only for what you use**: Numero di invocazioni, tempo e uso di risorse
@@ -120,6 +121,7 @@ Nessun problema di scalabilità
  Scelgo la tipologia, ricordando le differenze di memoria allocabile e Time Bound. Indico la Region dove allocare l'oggetto.
 
  Successivamente nella parte Trigger Type, definisco l'evento scatenante (richiesta http, scrittura nel Cloud Storage ecc) e la tipologia di autenticazione necessaria per poter scatenare eventi, quindi invocazioni autenticate o non. Posso definire la memoria allocata ad eseguire il codice e il timeout per l'esecuzione ecc
+ 
  Nella pagina successiva inserisco il codice da eseguire e il tipo di runtime collegato al linguaggio utilizzato.
 
  Posso testare il codice, vedendo anche log e varie metriche connesse: tempi di risposta, memoria usata ecc.
@@ -164,6 +166,3 @@ Avendo diverse revisions, del mio servizio (microservizio), posso decidere come 
 
 ## Anhtos -> per eseguire cluster Kubernetes dove voglio
 
-Note
-
-N.B Per le immagini, il path qui presente utilizza il forwardslash, windows utilizza il backslash. Se non vengono visualizzate il problema potrebbe essere legato a quello

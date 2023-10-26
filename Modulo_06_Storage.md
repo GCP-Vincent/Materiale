@@ -21,15 +21,15 @@ Caso d'uso, hard disk collegato ai pc
 Tipicamente **un solo Block Storage** connesso ad **un solo virtual server**
 
 **N.B**
-Eccezione, solo Read Only Block devices possono essre connessi a più virtual server, alcuni cloud providers stanno provano anche quelli in scrittura
+Eccezione, solo Read Only Block devices possono essere connessi a più virtual server, alcuni cloud providers stanno provando anche quelli in scrittura
 
 Tuttavia è possibile connettere **molteplici Block Storage** devices ad **un virtual server**
 
 ![block_storage](Images\Block_storage.png)
 
 Utilizzo di questo:
-- Direct-attached storage (DAS)- simile ad hard disk
-- Storage Area Network (NAS)- High-speed connecting ad un pool di storage devices
+- Direct-attached storage (DAS) - simile ad hard disk
+- Storage Area Network (NAS) - High-speed connecting ad un pool di storage devices
 
 ## **In GCP**
  **Persistent Disks**: Network Block Storage, è possibile connettere una vm a questo tipo di disco, presente da qualche parte sulla rete. 
@@ -37,11 +37,13 @@ Utilizzo di questo:
      - Zonal: Dati replicati in una singola zona
      - Regional: Dati replicati in molteplici zone, nella stessa Region
     
- **Local SSD**: Local Block Storage, collocato dove vi è l'host
+ **Local SSD**: Local Block Storage, collocato dove vi è l'host che ospita la VM. Quindi velocità superiore. Tuttavia i dati archiviati su un'unità ssd locale rimangono finché l'istanza non viene arrestata o eliminata. Utilizzali quando hai bisogno di una disco temporaneo o di una cache rapida
+
+Per approfondire su dimensioni e tipologia https://cloud.google.com/compute/docs/disks
 
  **N.B** 
  Di default, nella sezione Boot disk, alla creazione della VM, il tipo di disco dove vi è il Sistema Operativo, è un **persistent disk**
- I dischi addizionali possono essere aggiunti nella sezione Disks, scegliendo la dimension. La tipologia Local SSD è disponibile solo per alcune tipologie di macchine
+ I dischi addizionali possono essere aggiunti nella sezione Disks, scegliendo la dimensione. La tipologia Local SSD è disponibile solo per alcune tipologie di macchine
 
 # File Storage
 
@@ -54,14 +56,14 @@ Quindi tipicamente **tanti devices Block Storage** connessi ad **tanti virtual s
 ![file_storage](Images/File_storage.png)
 
 ## **In GCP**
- **Filestore**: High Performace File Storage 
+ ## **Filestore**: High Performace File Storage 
 
 
 **N.B** 
  Creo un oggetto Filestore, attivo le API, e ne creo un'istanza. 
  Scelgo la dimensione, la locazione e la tipologia, HDD, o SSD. Successivamente posso collegarlo ad una specifica VM 
 
- # Object Storage
+ ## Object Storage
 
  Un contenitore di oggetti di ogni tipo, in cui definisco la frequenza di accesso a questi.
 
@@ -143,6 +145,3 @@ Opzioni:
 
 ![transfer_appliance](Images/transfer_appliance.png)
 
-Note
-
-N.B Per le immagini, il path qui presente utilizza il forwardslash, windows utilizza il backslash. Se non vengono visualizzate il problema potrebbe essere legato a quello

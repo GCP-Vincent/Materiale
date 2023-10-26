@@ -8,7 +8,7 @@ Spesso è utile utilizzare un modello di comunicazione diverso da quello sincron
 # Google Cloud Pub/Sub
 In questo servizio ho tre entità: publisher-topic-subscriber 
 
-Occorre definire un topic dove uno o più publisher(applicazione) pubblicano i messaggi, il o i subscriber (applicazione) li ricevevono
+Occorre definire un topic dove uno o più publisher (applicazione) pubblicano i messaggi e il o i subscriber (applicazione) li ricevevono
 
 
 
@@ -33,12 +33,16 @@ Entrando più nel dettaglio di funzionamento, è utile fare attenzione ad alcune
 - Step 1: Creare il Topic
 - Step 2: Creare le Subscriptions (anche una è possibile)
 - Step 3: Subscriber si registrano al topic (tramite la subscription). 
+
 **Importante**
+
     - diversi clienti (subscribers) registrati alla stessa subscription -> i messaggi vengono splittati (ho 3 clienti connessi alla stessa subscription e  4 messaggi nel topic, non tutti ricevono i 4 messaggi)
+
     - diversi clienti (subscribers) registrati a subscriptions diverse -> tutti ricevono tutti i messaggi(ho 3 clienti connessi a 3 subscriptions diverse, tutti ricevono tutti i messaggi dal topic) 
 - Step 4:
     - Una volta processato il messaggio, il subscriber invia un acknowledgement al topic.
     - Il messaggio viene eliminato dalla coda dei messaggi
+
 N.B 
 
 Ogni Subscription rappresenta un canale discreto (se ho 3 subscriptions tutti i messaggi passano per le 3 subscriptions)
@@ -53,7 +57,7 @@ Segue Link ->   [Creazione Pub/Sub](Demo/Demo_Pub_Sub.md)
 
 Se voglio archiviare qualche immagine ho due opzioni, la seconda è da preferire 
 
-- Container Registry (desueta): usa GCS bucket per archiviare immagini docker. Un docker hub ma privato, opzione un po' desueta. 
+- Container Registry (desueta): usa GCS bucket per archiviare immagini docker. Un docker hub ma privato, opzione un po' desueta e superata. 
     
     - Gestione permessi su IAM di GCS buckets
        

@@ -1,13 +1,11 @@
 # DevOps
 
-Racchiudere gli elementi dei migliori Teams per un buon software (Teams: business, development, operations)
+Racchiudere gli elementi dei migliori Teams per un buon software
+
+ (Teams: business, development, operations)
 - **Feedback**, prima si trova un problema, prima si risolve.
-- **Comunicazione**, per lavorare bene insieme è necessaria
-- **Automation**, task ripetitivi e noiosi per concentrarsi nella parte creativa
-
-Note
-
-N.B Per le immagini, il path qui presente utilizza il forwardslash, windows utilizza il backslash. Se non vengono visualizzate il problema potrebbe essere legato a quello
+- **Comunicazione**, per lavorare bene insieme, è necessaria
+- **Automation**, su task ripetitivi e noiosi per concentrarsi nella parte creativa
 
 ## CI/CD Tools in GCP
 ![Alt text](Images/CICD.png)
@@ -32,11 +30,15 @@ Il deployment continuo, invece, fa riferimento ad alcuni ulteriori passaggi rela
 
 
 Esempio: Cloud Run con Cloud Build
+
 Cloud Build per automatizzare l'intero processo
 
-Step 1: Creo un repository in Cloud Source Repository, il codice sorgente qui archiviato, ogni cambiamento viene rilevato da Cloud Build
+Step 1: Creo un repository in Cloud Source Repository, il codice sorgente virnr qui archiviato, ogni cambiamento viene rilevato da Cloud Build
+
 Step 2: A partire dal source code faccio una build per ottenere una Docker image
+
 Step 3: Archivio la Docker image in Container Registry 
+
 Step 4: Deploy la Docker image in Cloud Run 
 
 
@@ -53,19 +55,21 @@ Due argomenti chiave:
 - Configuration Management
     - Installare il giusto software e tools sulle risorse allocate, in modo automatizato (ho 100 VMs non devo farlo su ognuna)
     - Open source tools per farlo sono Chef, Puppet, Ansible e SaltStack 
+
 La fase operativa prevede la manutenzione, il monitoraggio e la risoluzione dei problemi delle operazioni negli ambienti di produzione.
 
-Strumenti a disposizione per il team Operations
+Strumenti a disposizione per il team Operations su GCP
 
 ![Alt text](Images/OperationsTools.png)
  - Monitoring: metriche e alerts, consumo di CPU ecc
  - Logging: Logging centralizzato di tutte le applicazioni
  - Audit Logs *: per aver un controllo su chi ha fatto cosa (tizio ha avviato la VM)
  - Trace: per tenere traccia delle singole richieste che attraversano i microservizi 
- - Debugger: per effettuare un debug live nell'environment(dev/prod ecc)
+ - Debugger: per effettuare un debug live nell'environment (dev/prod ecc)
  - Profiler: per andare in profondità, per esempio di un microservizio nello specifico
  - Error Reporting: per visuallizzare le exceptions lanciate dalle applicazioni  
 
+**non presente nell'immagine*
 ## SRE
 **Il site reliability engineering (SRE) è un approccio alle operazioni IT basato sull'ingegneria del software**, che prevede l'uso di software per la gestione dei sistemi da parte dei team, oltre all'automazione di tali operazioni.
 
@@ -86,20 +90,20 @@ Come sapere se un servizio funziona bene o se rispetta le richieste?
     - 99,99% Availability ecc
     - Response time: 99th percentile-1 second (il 99% delle richieste deve rispondere entro 1 secondo) 
     - La loro definizione non è semplice
-    - sono interni
+    - Sono interni
 
 - SLA (Service Level Agreement): SLO + conseguenze
     - Contratto
     - Cosa succede se non rispettato uno SLO (definito nel contratto)
     - Tipicamente avere SLO interni più stringenti di quelli indicati nello SLA
-    - sono esterni (con i clienti)
+    - Sono esterni (con i clienti)
 - Error bugets: (100% meno SLO)
     - Serve a capire se si sta andando troppo veloce nei rilasci.
     - Se si rispettano gli SLO allora si può procedere più velocemente
 
-Alcune best PRocatices dietro SRE
+Alcune best Practices dietro SRE
 - Handling Excess Load
-    - Deinire dei limiti sulle API, con differenti SLA in base ai clienti
+    - Definire dei limiti sulle API, con differenti SLA in base ai clienti
     - Riduzione del QOS (restituendo contenuti statici)
 - Evitare Fallimenti in cascata
     - se un microservizio è sovraccarico, attendere prima di bombardarlo per evitare di farlo fallire
@@ -126,6 +130,4 @@ Se vi è la voglia, e necessità di andare verso il cloud, occorre tenere conto 
 - Usa un approccio step-by-step. Sperimenta
 
  
-Note
 
-N.B Per le immagini, il path qui presente utilizza il forwardslash, windows utilizza il backslash. Se non vengono visualizzate il problema potrebbe essere legato a quello

@@ -6,7 +6,7 @@
 
 # Compute Engine Service 
  
-- Servizio che consente di creare e gestire macchine virtuali in GCP
+Servizio che consente di creare e gestire macchine virtuali in GCP, Google Cloud Platform
 
 - Consente di gestire auto scaling, per aumentare/diminuire il numero di instanze
 
@@ -19,7 +19,7 @@
 
 Obiettivo
 
-Su GCP avviare una virtual machine tramite Compute Engine
+Su GCP avviare una virtual machine tramite il servizio Compute Engine
 
 Dopo averla avviata e smanettato un po' installando apache, vediamo che l'indirizzo IP interno (privato), non cambia se cambia lo stato della VM (stop, run). Se invece stoppo e faccio ripartire la VM quello esterno (pubblico) cambia.
 
@@ -27,14 +27,14 @@ IMPORTANTE
 
 L'indirizzo esterno (pubblico) di default è infatti effimero, viene quindi riassegnato ad ogni modifica dello stato della VM.
 
-Per averne uno fisso, occorre crearlo e collegarlo. **Static IP Address**. Anche quando non lo utilizzo lo pago. Anche se il nome può ingannare questo è pubblico, da non confondere con l'indirizzo statico privato
+Per averne uno fisso, occorre crearlo e collegarlo. **Static IP Address**. Ma questo anche quando non lo utilizzo lo pago. Anche se il nome può ingannare questo è pubblico, da non confondere con l'indirizzo statico privato
 
 ## STARTUP SCRIPT - INSTANCE TEMPLATE - CUSTOM IMAGE
 
 Ho diverse opzioni per creare un'instanza di una VM e settere automaticamente delle configurazioni.  
 
 ### Startup script
- Nella creazione di un'istanza di VM, tramite Compute Engine, si va a definire nel campo che trovo in, MANAGEMENT-> SECURITY -> DISKS -> NETWORKING -> SOLE TENANCY, (potrebbe cambiare col tempo il front-end), definisco lo script che voglio fare eseguire al bootstrap (Automation di Management) 
+ Nella creazione di un'istanza di VM, tramite Compute Engine, si va a definire nel campo che trovo in, MANAGEMENT-> SECURITY -> DISKS -> NETWORKING -> SOLE TENANCY, (potrebbe cambiare col tempo il front-end), lo script che voglio fare eseguire al bootstrap (Automation di Management) 
 
 N.B 
 
@@ -80,7 +80,7 @@ Segue demo
 ## Scontistiche di GCP
 ### Sustained use discounts -> sconti per utilizzo sostenuto
 
-Vi sono degli sconti, applicati in automatico, in base all'uso delle VM create tramite **Compute Engine, Google Kubernetes Engine**
+Vi sono degli sconti, applicati in automatico, in base all'uso delle VMs create tramite **Compute Engine, o Google Kubernetes Engine**
 
 Non sono supportate alcune tipologie di macchine, come le E2 e A2
 
@@ -104,7 +104,7 @@ Istanze con durata massima di 24 ore, che possono essere stoppate in qualsiasi m
 
 Limiti:
 - Non sono sempre disponibili
-- No SLA, non ho garanzie e tempi di downtime definiti
+- No SLA, non ho garanzie e tempi di downtime indefiniti
 - No Automatic Restarts
 - Non posso migrare una preemptible VM in regular VM
 - Non è possibile utilizzare i crediti free per questa tipologia
@@ -113,16 +113,17 @@ Limiti:
 
 ### Spot VM
 
-Il concetto è uguale alle preemptible ma ho due differenze principali che le rende più flessibili
+Il concetto è uguale alle preemptible ma ho due differenze principali che le rendono più flessibili
 - No maximum runtime di 24 ore (non ho questo limite)
 - Dynamic pricing 60-91% discount
 
 Le altre caratteristiche sono uguali
 
-### Compute Engine - Sole-Tenant Nodes
+### Sole-Tenant Nodes
 
-Di default singoli host possono contenere istanze di clienti diversi
-Una Sole-Tenant Node consente di avere hw dedicato
+Di default singoli host possono contenere istanze di clienti diversi.
+
+Un Sole-Tenant Node consente di avere hw dedicato
  
 ![Alt text](Images/sole-tenant_node.png)
 
@@ -137,21 +138,22 @@ Contro:
 
 Per creare un sole-tenant node occorre creare un Node Group -> Node Group Template, in cui definisco Affinity Labels (key:in:value)
 
-Nella creazione della VM poi inserisco queste Affinity Labels, campo sole-tenant,per associarle al Node Group
+Nella creazione della VM poi inserisco queste Affinity Labels, campo sole-tenant, per associarle al Node Group
 
 ## Custom Machine Types
 
 E' possibile implementare una VM custom. Tra quelle disponibile, questa opzione è presente per E2, N2 o N1
+
 Il costo dipende dal numero di vCPUs e memoria richieste
 
-A differenze delle altre non è una vera tipologia. E' una features di Compute Engine che consente di abilitare il flag custom nella configurazione della VM
+A differenza delle altre non è una vera tipologia. E' una features di Compute Engine che consente di abilitare il flag custom nella configurazione della VM
 
 ## Costi associati alla Virtual Machine
 
 Principalmente due costi:
 
 - costi di infrastruttura per eseguire le VMs
-- costi di licenza per OS (solo per premium images),non per OS open sources
+- costi di licenza per OS (solo per premium images), non per OS open sources
     
     - opzioni:
         
@@ -207,11 +209,11 @@ Vediamo le due tipologie nel dettaglio
 - identiche VMs create usando lo stesso instance template
 - caratteristiche principali:
     - avere un certo numero stabilito di instanze -> se una fallisce viene ricreata
-    - rilevare fallimenti, usando health checks(auto healing), e sopperire ad essi
+    - rilevare fallimenti, usando health checks (auto healing), e sopperire ad essi
     - aumentare o diminuire il numero di instanze in base al carico (auto scaling)
     - aggiungere un Load Balancer per distribuire il carico
     - creare le istanze in Zones diverse, o nella stessa zone. 
-    - rilascio di nuove versioni senzo downtime
+    - rilascio di nuove versioni senza downtime
         - rolling updates: rilascio nuova versione step-by-step. Gradualmente ne aggiorno una, poi un'altra ecc
         - canary deployment: testo una nuova versione su un gruppo ristretto di istanze prima di farlo sul gruppo intero (canarino miniere)
 
@@ -227,7 +229,7 @@ Segue Link ->   [Creazione MIG](Demo/Demo_MIG.md)
 ## Google Cloud Load Balancing 
 
 Servizio che distribuisce il traffico in VMs che si trovano in una o più Regions.
-- Servizio gestito da Googel Cloud
+- Servizio gestito da Google Cloud
     - assicura quindi alta disponibilità
     - autoscale per gestire enorme carico
     - può essere public (verso internet), o private (interno)
@@ -238,9 +240,4 @@ Servizio che distribuisce il traffico in VMs che si trovano in una o più Region
     - External Network TCP/UDP - Internal TCP/UDP
 
 Segue Link ->  [Creazione Load Balancer](Demo/Demo_Load_Balancer.md)
-
-
-Note
-
-N.B Per le immagini, il path qui presente utilizza il forwardslash /, windows utilizza il backslash \ . Se non vengono visualizzate il problema potrebbe essere legato a quello 
 

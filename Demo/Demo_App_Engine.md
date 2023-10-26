@@ -1,8 +1,8 @@
 # Demo App Engine
 
-App Engine consente di fare il deploy di un'applicazione su GCP
+**App Engine consente di fare il deploy di un'applicazione su GCP**
 
-Consiglio: creare un nuovo project, eliminandolo elimino tutto ciò che c'è connesso ad esso
+Consiglio: creare un nuovo project, in questo modo eliminandolo elimino tutto ciò che c'è connesso ad esso
 
 Mi posiziono nel nuovo progetto, per lavorarci
 
@@ -10,7 +10,10 @@ Ricerco App Engine. Per ogni servizio devo abilitare le API.
 Scelgo la Region dove fare il deploy. Se voglio creare diversi App Engine applications in diverse Regions occorre farlo in diversi projects.
 
 Richiede Language ed Environments.
-Una volta creato, procedo con il caricamento della mia applicazione. Cloud Shell-> Open Editor -> Open Folder e carico l'applicazione nell'editor.
+
+Una volta creato, procedo con il caricamento della mia applicazione.
+
+ Cloud Shell-> Open Editor -> Open Folder e carico l'applicazione nell'editor.
 
 All'interno di essa (nella demo fornita), vi deve essere un file app.yaml con indicazioni specifiche per App Engine, in questo caso la versione del runtime di Python.
 
@@ -38,9 +41,9 @@ Quando carico un'applicazione tramite App Engine standard, in background viene c
 
 Fasi per deploy app:
 1. Settare giusto project
-2. posizionarsi nella giusta cartella
-3. da GCP concedere i giusti privilegi (Role), da IAM (Identity and Access Management)
-4. fare il deploy
+2. Posizionarsi nella giusta cartella
+3. Da GCP concedere i giusti privilegi (Role), da IAM (Identity and Access Management)
+4. Fare il deploy
 
 Altri comandi utili
 ```bash

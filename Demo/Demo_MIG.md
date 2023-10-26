@@ -1,9 +1,9 @@
-Creazione MIG
+# Creazione MIG
 
 Un pool di instanze di VMs identiche
 
-- Instance template obbligatorio (base di partenza)
-- Configurazione auto scaling 
+- **Instance template** obbligatorio (base di partenza)
+- Configurazione **auto scaling** 
     - definendo minimum number di instanza
     - definendo maximum number di instanza
     - definire delle autoscaling metrics (utilizzo cpu, load balancer, altre metriche definite da Stack Driver di Google Cloud)
@@ -11,15 +11,15 @@ Un pool di instanze di VMs identiche
 - E' possibile definire inoltre:
     - Cool-down period: periodo prima di rivedere le metriche
     - Scale-In controls: per evitare un calo drastrico delle istanze (ad es. non scalare più di tot istanze in 5 minuti). 
-    - Auto healing: configurare degli health checks (oggetti in GCP) con un initial delay (tempo di attsa prima della loro verifica). In base a questi oggetti si controlla lo stato di salute dell'istanza
+    - Auto healing: configurare degli health checks (oggetti in GCP) con un initial delay (tempo di attesa prima della loro verifica). In base a questi oggetti si controlla lo stato di salute dell'istanza
 
-Creazione da portale di MIG con autoscaling e autohealing
+**Creazione da portale di MIG con autoscaling e autohealing**
 
-Dalla sezione Compute Engine, creare Instance Template (obbligatorio). Dopo averlo creato, sempre nella sezione di Compute Engine ho una parte legata a Instance Groups (Managed o Unmanaged), ne creo uno da zero.
+Dalla sezione **Compute Engine**, creare **Instance Template** (obbligatorio). Dopo averlo creato, sempre nella sezione di Compute Engine ho una parte legata a **Instance Groups** (Managed o Unmanaged), ne creo uno da zero.
 
 Nella scelta MIG, in questo caso, ho due possibilità:
--   MIG stateless (per Web application o REST API)     
--   MIG stateful (adatto per persistent data o configurazioni)
+-   MIG **stateless** (per Web application o REST API)     
+-   MIG **stateful** (adatto per persistent data o configurazioni)
 
 Scelto ad esempio stateless, gli do un nome, una descrizione, indico l'instance template da cui creare le VMs, definisco la location, definisco l'autoscaling mode (on: add o remove, scale out: solo aggiunta, off: disabilitato), definisco il numero e le metriche da usare. Definisco il Cool-down period e il controllo sullo scale-in (decrementa il numero di istanze quando il traffico cala).
 

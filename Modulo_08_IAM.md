@@ -12,8 +12,8 @@ Tipicamente nel cloud abbiamo **resources** (virtual server, databases ecc) e **
 - **Identities** che possono essere:
     - Un GCP User (Google Account or Externally Authenticated User)  
     - Un Group di GCP Users (sempre consigliati per facilità)  
-    - Un applicazione in esecuzione in GCP User 
-    - Un applicazione in esecuzione on premise 
+    - Un' applicazione in esecuzione in GCP User 
+    - Un' applicazione in esecuzione on premise 
     - Uno User non autenticato
 
 Fornisce un **controllo molto granulare**:
@@ -52,7 +52,7 @@ Terminologia
 ## In GCP 
 Ricercando la voce **IAM & Admin** 
 
-Un Member è anche chiamato Principal o Identity, **è possibile visualizzare i Roles a lui assegnati**. E' possibile aggiungerne uno nuovo, creandolo, o editarne uno già presente.
+Di un Member, anche chiamato Principal o Identity, **è possibile visualizzare i Roles a lui assegnati**. E' possibile aggiungerne uno nuovo, creandolo, oppure editarne uno già presente.
 
 La voce del menù a sinistra **Policy Troubleshooter**, consente di capire se ci sono problemi con gli accessi su una risorsa in base al ruolo.
 Se un certo principal, su una specifica risorsa, ha un certo tipo di permesso
@@ -71,7 +71,7 @@ Se un certo principal, su una specifica risorsa, ha un certo tipo di permesso
 Tipologie:
 - **Default service account** creati in automatico quando qualche servizio viene creato. Tuttavia il loro uso è sconsigliato per via del Role Editor (troppo largo)
 
-- **User Managed** creati dall'utente. **RACCOMANDATO**, definisco il nome e il Role. Quando poi vado a creare una nuova risorsa posso associarlo ad essa. Le condition servono ad essere ancora più specifici (tempo o tipo risorsa, fine validità ecc).
+- **User Managed** creati dall'utente. **RACCOMANDATO**, definisco il nome e il Role. Quando poi vado a creare una nuova risorsa posso associarlo ad essa. Le conditions servono ad essere ancora più specifici (tempo o tipo risorsa, fine validità ecc).
         
         MOLTO RACCOMANDATO
 
@@ -83,20 +83,24 @@ Tipologie:
 
 
 # Demo, creazione di un service account
-Idea: creazione service account da associare ad una vm, attraverso la vm creo un bucket su Google Cloud Storage
+Idea: Creazione di un service account da associare ad una vm, attraverso la vm creo poi un bucket su Google Cloud Storage
 
-Creo prima un service account in cui definisco come Role Compute Instance Admin (quindi full control of Compute Engine instance resources, posso creare vm), (manca il permesso sullo storage, quindi mi aspetto un errore). Successivamente durante la creazione della vm, associo questo service account alla vm, accendo la vm, mi collego tramite ssh, ed eseguo un comando per creare un bucket (deve avere un nome unico globalmente), che fallirà perchè non ho i permessi associati.
+Creo prima un service account in cui definisco come Role: Compute Instance Admin (quindi full control of Compute Engine instance resources, posso creare vm), manca il permesso sullo storage, quindi mi aspetto un errore
+
+ Successivamente durante la creazione della vm, associo questo service account alla vm, accendo la vm, mi collego tramite ssh, ed eseguo un comando per creare un bucket (deve avere un nome unico globalmente), che fallirà perchè non ho i permessi associati allo storage.
 
 ```bash
 gsutil mb gs://bucket-ofvins         # mb sta per make bucket
 ```
 
- Vado quindi in GCP, sezione IAM di IAM & Admin, per editare il service account creato. Gli aggiungo il Role Storage Admin (per avere il full control sulle risorse GCS). La modifica è instantanea, quindi rieseguendo il comando verrà creato il bucket su GCS, visualizzabile da STORAGE su GCP
+ Vado quindi in GCP, sezione IAM di IAM & Admin, per editare il service account creato. Gli aggiungo il Role Storage Admin (per avere il full control sulle risorse GCS). 
+ 
+ La modifica è instantanea, quindi rieseguendo il comando verrà creato il bucket su GCS, visualizzabile da STORAGE su GCP
 
 
 
  ## IAM Best Practices
- - **Principio del minimo privilegio**: Concedi sempre i minimi privileggi necessari per un role. 
+ - **Principio del minimo privilegio**: Concedi sempre i minimi privilegi necessari per un role. 
     Per questo motivo Basic Roles non sono raccomandati, meglio i predefined roles
 - **Utilizza Service Accounts con privilegi minimi**
 
@@ -126,12 +130,12 @@ Esistono **due altre modalità**
 
     Consente di abilitare il **Single Sign On**: in questo modo autenticandosi, saranno anche autenticati al loro account Google Cloud Platform
 
-    **Identity Platform**: consente di gestire identità deo clinti e controllo accessi
+    **Identity Platform**: consente di gestire identità dei clienti e controllo accessi
 
     **Differenze tra: Cloud IAM e Identity Platform**
     -   **Cloud IAM**: Per autorizzazioni su dipendenti e Partners
 
-                   Controllo sull'accesso alle risorse create su GCP: Member, Roles, Policy e Service Accounts
+                   Controllo sull'accesso alle risorse create su GCP: Members, Roles, Policy e Service Accounts
     
     - **Identity Platform**: Customer identity and access management (CIAM)
 
@@ -144,7 +148,7 @@ Esistono **due altre modalità**
          - Si integra molto bene con Identity-Aware Proxy (per Cloud Run ecc)
     
 **Scenari di utilizzo**
-- Un applicazione su GCE VM necessita l'accesso al cloud storage?       
+- Un'applicazione su GCE VM necessita l'accesso al cloud storage?       
  Cloud IAM -> Service Account
 - Un utente di un'azienda vuole caricare oggetti su Cloud Storage buckets? 
 Cloud IAM
@@ -159,9 +163,10 @@ Identity Platform
 
 # Organization Policy Service
 
-Servizio che consente di definire dei ***vincoli centralizzati** alle risorse create in un Organization. Le trovo in IAM & Admin
+Servizio che consente di definire dei **vincoli centralizzati** alle risorse create in un' Organization. Le trovo in IAM & Admin
 
 Es. Voglio disabilitare la creazione di Service Accounts
+
     Permettere/negare la creazione di risorse in una specifica regions
 
 Per crearle occorre avere Role: Organization Policy Administrator
@@ -176,7 +181,3 @@ Occorre ricordare che **IAM** si focalizza su Who
 
 **Ne esistono un sacco predefinite già**
 
-
-Note
-
-N.B Per le immagini, il path qui presente utilizza il forwardslash, windows utilizza il backslash. Se non vengono visualizzate il problema potrebbe essere legato a quello

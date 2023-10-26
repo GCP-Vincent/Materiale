@@ -26,7 +26,9 @@ Un project è creato all'interno di una folder. Un project serve a raggruppare d
 La risorsa è creata all'interno di un project. Un Project può contenere diverse resources
 
 Es. Considera due applicazioni "A1","A2"
+
     Due ambienti: "DEV" e "PROD"
+    
     In un mondo ideale occorre creare 4 progetti: A1-DEV, A1-PROD, A2-DEV, A2-PROD
 
     N.B  Se seleziono in GCP il progetto e vado su ALL, posso visualizzare l'intera gerarchia. Nella versione free trial non posso avere Organization e Folder.
@@ -53,6 +55,3 @@ E' possibile espostare i dati di fatturazione verso:
 - Big Query (per visualizzare meglio)
 - Cloud Storage (per archiviare)
 
-Note
-
-N.B Per le immagini, il path qui presente utilizza il forwardslash, windows utilizza il backslash. Se non vengono visualizzate il problema potrebbe essere legato a quello

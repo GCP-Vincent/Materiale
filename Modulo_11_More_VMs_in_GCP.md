@@ -1,3 +1,5 @@
+# Altre soluzioni e migrazione in GCP
+
 # Bare Metal in the Cloud
 
 Le VMs create su GCP non hanno un hardware dedicato. In generale una mia VM può trovarsi quindi su di un host nel quale vi sono altre VMs di altre persone. Si sfrutta quindi la virtualizzazione, ovvero la capacità di astrarre dall'hardware sottostante.
@@ -16,7 +18,7 @@ Se si vuole evitare di utilizzare un hypervisor, avendo quindi dell'hw dedicato 
 
 VMware fornisce soluzioni di virtualizzazione. Molto popolare nelle enterprises. 
 
-Come sposare i workloads sul cloud senza troppo sforzo?
+Come spostare i workloads sul cloud senza troppo sforzo?
 
     Google Cloud VMware Engine: 
     - Per espandere e migrare (Lift and shift) l'infrastruttura VMWare su Google Cloud. Quindi migrare VMWare workloads in cloud
@@ -43,7 +45,7 @@ Possibilità di migrare in batches (lotti), anche chiamati waves, usando VMs gro
 
 # Migrate for Anthos e GKE
 
-Per modernizzare apps passando da VMs a containers, presenti su GCP o fuori
+Per modernizzare apps passando da **VMs a containers**, presenti su GCP o fuori
 - Vantaggi:
     - no vm layers (come Guest OS)
     - più efficienti e costi inferiori
@@ -60,6 +62,3 @@ Se le VMs sono fuori da GCP occorre:
 2. Migrare le GCE VMs in containers attraverso Migrate for Anthos e GKE
 
 
-Note
-
-N.B Per le immagini, il path qui presente utilizza il forwardslash, windows utilizza il backslash. Se non vengono visualizzate il problema potrebbe essere legato a quello
