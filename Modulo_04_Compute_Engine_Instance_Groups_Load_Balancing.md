@@ -2,7 +2,7 @@
 
 - [Compute Engine](#compute-engine)
 - [Instance Groups](#instance-groups) 
-- [Load Balancing](#load-balancing)
+- [Load Balancing](#google-cloud-load-balancing)
 
 # Compute Engine Service 
  
@@ -38,7 +38,7 @@ Ho diverse opzioni per creare un'instanza di una VM e settere automaticamente de
 
 N.B 
 
-Nell'utilizzo di script utilizzare ricordarsi il -y per le richieste di conferma
+Nell'utilizzo di script da utilizzare, ricordarsi il -y per le richieste di conferma
 
 
 ### Instance Template 
