@@ -60,6 +60,7 @@ Il nome della VM avrà la stessa radice del template seguito dal numero di creaz
 Sorge da queste due soluzioni un piccolo problema. Installare OS patches o software all'avvio della VM, chiaramente aumenta il tempo di boot.
 La soluzione è definire una **Custom Image** con tutto il necessario già installato. 
 
+[Creazione Instance template](https://cloud.google.com/compute/docs/instance-templates/create-instance-templates)
 ### Custom Image
 
 - Può essere condivisa su più progetti
