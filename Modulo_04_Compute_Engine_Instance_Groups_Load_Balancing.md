@@ -21,6 +21,8 @@ Obiettivo
 
 Su GCP avviare una virtual machine tramite il servizio Compute Engine
 
+[Creazione VM, documentazione ufficiale](https://cloud.google.com/compute/docs/instances/create-start-instance#console)
+
 Dopo averla avviata e smanettato un po' installando apache, vediamo che l'indirizzo IP interno (privato), non cambia se cambia lo stato della VM (stop, run). Se invece stoppo e faccio ripartire la VM quello esterno (pubblico) cambia.
 
 IMPORTANTE
