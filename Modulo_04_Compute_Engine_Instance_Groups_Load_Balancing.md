@@ -51,7 +51,7 @@ Questo template consente di implementare singole VM o gruppi di VMs.
 Il limite maggiore è dato dall'immutabilità del template. Una volta definito il template è immutabile. Devo per forza crearne un altro.
 
 N.B 
-Nella crezione del template non va specificata Zone/Region. Ricordarsi inoltre di abilitare il traffico verso la Vm. Per il resto rimane uguale la procedura di creazione
+Nella creazione del template non va specificata Zone/Region, di base sono Global. Ricordarsi inoltre di abilitare il traffico verso la Vm. Per il resto rimane uguale la procedura di creazione
 
 Le istanze che vado a creare da questo template, costeranno in base al consumo. Durante la creazione dovrò specificare allora la Region e Zone.
 
@@ -63,10 +63,10 @@ La soluzione è definire una **Custom Image** con tutto il necessario già insta
 [Creazione Instance template](https://cloud.google.com/compute/docs/instance-templates/create-instance-templates)
 ### Custom Image
 
-- Può essere condivisa su più progetti
+- Può essere condivisa su più progetti, di base le Images sono Global
 - E' buona norma deprecare quelle vecchie
 - Hardening, rispettare gli standard di sicurezza porta a creare VM "sicure"
-
+ 
 Posso creare una VM utilizzando una Custom Image a partire da 
 - Instance
 - Persistence disk
