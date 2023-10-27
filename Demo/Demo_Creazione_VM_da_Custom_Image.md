@@ -1,6 +1,7 @@
 # Custom Image
+[Crea custom image](https://cloud.google.com/compute/docs/images/create-custom)
 
-Obbiettivo: Creare una Custom Image, da questa creare un'istanza di VM o Instance Template
+Obiettivo: Creare una Custom Image, da questa creare un'istanza di VM o Instance Template
 
 Partendo da un disco associato ad una VM esistente, su di esso vi è il suo OS, vado a creare una **Custom Image**
 
