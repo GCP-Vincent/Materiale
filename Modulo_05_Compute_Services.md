@@ -13,7 +13,7 @@ Tutti i più importanti Google Cloud Services
  # App Engine (GAE)
  Prima versione rilasciata nel 2008 
  
- Consente di fare il **deploy** e **scalare** le **applicazioni** in GCP
+ Consente di fare il **deploy** e **scalare facilemente** le **applicazioni** in GCP
 
  Supporta una moltitudine di linguaggi: Go, Java, .NET, PHP, Python, Ruby ecc
 
