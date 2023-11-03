@@ -27,14 +27,6 @@ Tutti i più importanti Google Cloud Services
 - **Managed Platform update** & **Application health monitoring**, aggiornamento e monitoraggio
 - **Application versioning**, avere diverse versioni, **Traffic splitting**, indicare dove smistare il traffico sulle diverse versioni
 
-**Compute Engine vs App Engine**
-
-Compute Engine, parliamo di un IAAS, offre più flessibilità ma maggiore responsabilità: celta della Image, installare software, scelta hw, accessi e permessi più specifici (Certificates/Firewalls), gestione della disponibilità
-
-App Engine, parliamo di PAAS, meno flessibilità, ma minore responsabilità
-
-**Quale usare?** Dipende dalla situazione, ho qualcosa di già pronto e voglio portarlo subito in Cloud, App Engine. Se voglio avere maggiore controllo però allora devo scegliere Compute Engine (Creare una vm)
-
 **App Engine Environments**
 
 **Standard** -> applicazioni run in un **language specific sandboxes**
@@ -49,6 +41,15 @@ App Engine, parliamo di PAAS, meno flessibilità, ma minore responsabilità
 - Supporto a qualsiasi runtime 
 - **Non è possibile scale down to Zero**, almeno un'istanza attiva 
 ----
+
+### Compute Engine vs App Engine
+
+Compute Engine: parliamo di un IAAS, offre più flessibilità ma maggiore responsabilità: scelta della Image, installare software, scelta hw, accessi e permessi più specifici (Certificates/Firewalls), gestione della disponibilità
+
+App Engine: parliamo di PAAS, meno flessibilità, ma minore responsabilità
+
+**Quale usare?** Dipende dalla situazione, ho qualcosa di già pronto e voglio portarlo subito in Cloud, App Engine. Se voglio avere maggiore controllo però allora devo scegliere Compute Engine (Creare una vm)
+
 
 ## Demo App Engine, lista comandi utili
 Segue Link ->  [Demo App Engine](Demo/Demo_App_Engine.md)
