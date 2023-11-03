@@ -25,7 +25,7 @@ Eccezione, solo Read Only Block devices possono essere connessi a più virtual s
 
 Tuttavia è possibile connettere **molteplici Block Storage** devices ad **un virtual server**
 
-![block_storage](Images\Block_storage.png)
+![block_storage](Images/Block_storage.png)
 
 Utilizzo di questo:
 - Direct-attached storage (DAS) - simile ad hard disk
