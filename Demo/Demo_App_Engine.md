@@ -6,10 +6,11 @@ Consiglio: creare un nuovo project, in questo modo eliminandolo elimino tutto ci
 
 Mi posiziono nel nuovo progetto, per lavorarci
 
-Ricerco App Engine. Per ogni servizio devo abilitare le API.
-Scelgo la Region dove fare il deploy. Se voglio creare diversi App Engine applications in diverse Regions occorre farlo in diversi projects.
+Ricerco App Engine. Per ogni servizio in GCP devo abilitare le API, quindi dovrò abilitare anche le API per App Engine.
 
-Richiede Language ed Environments.
+Durante la creazione devo, scegliere la Region dove fare il deploy, questa è permanente. Posso avere una applicazione per ogni project. Se voglio creare diversi App Engine applications in diverse Regions occorre farlo in diversi projects.
+
+Al passo successibo viene richiesto di scelgiere Language (dell'applicazione) ed Environments (di App engine).
 
 Una volta creato, procedo con il caricamento della mia applicazione.
 
@@ -20,24 +21,23 @@ All'interno di essa (nella demo fornita), vi deve essere un file app.yaml con in
 Una volta caricato devo eseguire una build. Ma prima, mi posiziono nella cartella.
 
 ```bash
-#Mi posiziono nel giusto project, recuperando l'id dal portale
+# Mi posiziono nel giusto project, recuperando l'id dal portale
 gcloud config set project "project-id"
 
-#Provo a fare il deploy, che fallirà, ma alcune cose vengono caricate per efficienza
+# Provo a fare il deploy, che fallirà. Alcune cose vengono caricate per efficienza
 gcloud app deploy
 
+# La risposta mi spiega perchè è fallito, problema di mancanza di permessi per l'accesso al bucket dello storage su GCP
 
-#La risposta mi spiega il problema di mancanza di permessi per l'accesso al bucket dello storage su GCP
+# Ricerco in GCP, IAM per la gestione dei permessi. E' stato creato un membro in automatico al quale devo concedere anche il Role: Storage Object Viewer
 
-#Ricerco in GCP, IAM per la gestione dei permessi. E' stato creato un membro in automatico al quale devo concedere il Role: Storage Object Viewer
-
-#Rifacendo il deploy adesso non fallisce
+# Rifacendo il deploy adesso non fallisce
 gcloud app deploy
 
 ```
 
 ### Spiegazione lunga e lista comandi utili
-Quando carico un'applicazione tramite App Engine standard, in background viene creato un deployment package. Questo viene archiviato in Object Storage di GCP. Viene utilizzato un tool di CI/CD, che si chiama Cloud Build, ed è necessario che questo tool possa accedere al deployment package archiviato nel Google Cloud Storage. Devo quindi concedere il giusto privilegio. 
+Quando carico un'applicazione tramite App Engine standard, in background viene creato un oggetto deployment package che viene archiviato in Object Storage di GCP. Viene utilizzato un tool di CI/CD, che si chiama Cloud Build, ed è necessario che questo tool possa accedere all'oggetto deployment package archiviato nel Google Cloud Storage. Devo quindi concedere il giusto privilegio. 
 
 Fasi per deploy app:
 1. Settare giusto project
