@@ -40,11 +40,16 @@ Con as-a-Service si indica in genere un servizio di cloud computing gestito da u
 # Service Models
 ![Alt text](Images/as-a-Service.png)
 
-## Iaas
+## IaaS
 
 Infrastructure-as-a-Service, o IaaS, offre un primo livello di delega della gestione dell'infrastruttura on-premise. Si tratta di un servizio con modello di consumo pay-as-you go, in cui una terza parte fornisce i servizi di infrastruttura, come lo storage e la virtualizzazione, quando sono necessari, tramite cloud e Internet. 
 
-L'utente è responsabile del sistema operativo e dei dati, delle applicazioni, del middleware e dei runtime, mentre il provider offre l'accesso e la gestione di rete, server, virtualizzazione e storage. 
+**L'utente è responsabile del sistema operativo e dei dati, delle applicazioni, del middleware e dei runtime (Java, Python ecc), mentre il provider offre l'accesso e la gestione di rete, server, virtualizzazione e storage.**
+
+«Per middleware si intende il software che rende accessibile sul Web risorse hardware o software che prima erano disponibili solo localmente o su reti non Internet.» (https://it.wikipedia.org/wiki/Middleware)
+
+
+Il middleware è un software che risiede tra un sistema operativo e le applicazioni eseguite in esso. Il middleware, che essenzialmente funziona come un livello di traduzione nascosto, consente la comunicazione e la gestione dei dati per le applicazioni distribuite(https://azure.microsoft.com/it-it/resources/cloud-computing-dictionary/what-is-middleware)
 
 Non occorre gestire o aggiornare il datacenter in sede, attività di cui si occupa il provider. L'utente ha il controllo completo dell'infrastruttura grazie a un'interfaccia di programmazione delle applicazioni (API) o a un dashboard. 
 
@@ -56,8 +61,9 @@ IaaS presenta anche alcuni inconvenienti, ad esempio i potenziali problemi legat
 
 Sono validi esempi di IaaS provider di cloud pubblico quali AWS, Microsoft Azure e Google Cloud.
 
+**Quindi dal OS, incluso, in su è gestione dell'utente**, aggiornamenti a carico dell'utente
 
-## Paas
+## PaaS
 
 Platform-as-a-Service, o PaaS offre un ulteriore livello di astrazione rispetto alla gestione completa e on premise dell'infrastruttura. Prevede che hardware e software siano ospitati nell'infrastruttura del provider, che distribuisce la piattaforma all'utente come soluzione integrata, stack di soluzioni o servizio erogato tramite una connessione internet.
 
@@ -68,8 +74,9 @@ L'utente si dedica quindi alla scrittura di codice, crea e gestisce le app, ma s
 Il servizio PaaS consente agli sviluppatori di creare un framework in cui realizzare e personalizzare le applicazioni web, a partire da componenti software integrati, riducendo così la quantità di codice che devono scrivere.
 
 
+**Quindi dall'applicazione, esclusa, in su è gestione dell'utente**, no aggiornamenti 
 
-## Saas
+## SaaS
 Software-as-a-Service, o SaaS, anche noto come servizi applicativi cloud, è la forma più completa di servizi di cloud computing, e consiste nella fornitura di un'intera applicazione gestita da un provider tramite un browser web. 
 
 Il provider si occupa degli aggiornamenti software, della correzione dei bug e di altre attività generiche di manutenzione del software, mentre l'utente si connette all'app tramite un'API o un dashboard. Non è prevista l'installazione di software sulle singole macchine e l'accesso dei gruppi al programma è più lineare e affidabile. 
@@ -79,6 +86,8 @@ Se, ad esempio, disponi di un account email di un servizio web come Outlook o Gm
 SaaS è un'opzione ottimale per le piccole aziende che non hanno il personale o la larghezza di banda sufficiente per gestire installazioni e aggiornamenti software, o per le applicazioni che richiedono un livello minimo di personalizzazione, o che vengono utilizzate solo sporadicamente. 
 
 I vantaggi offerti da SaaS in termini di tempo e manutenzione possono essere tuttavia controbilanciati da problemi legati a controllo, sicurezza e prestazioni. Per questo è importante scegliere un provider altamente affidabile.
+
+**Quindi solo inserimento dati è gestione dell'utente**
 
 Altre varietà che stanno nel mezzo
 
