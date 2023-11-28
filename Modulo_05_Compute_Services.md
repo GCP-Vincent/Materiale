@@ -19,7 +19,7 @@ Tutti i più importanti Google Cloud Services
 
  Consente di connettersi facilmente con altri servizi di GCP com (Cloud SQL etc)
  
- **Paghi in base** alle risorse **provisioniate**
+ **Paghi in base** alle risorse **provisioniate**, (istanze running versione standard, risorse hw versione flexible)
 
  Features:
 
@@ -39,7 +39,7 @@ Tutti i più importanti Google Cloud Services
 
 - Vengono eseguite su VMs, create con Compute Engine
 - Supporto a qualsiasi runtime 
-- **Non è possibile scale down to Zero**, almeno un'istanza attiva 
+- **Non è possibile scale down to Zero**, deve esserci sempre almeno un'istanza attiva 
 ----
 
 ### Compute Engine vs App Engine
@@ -48,10 +48,10 @@ Compute Engine: parliamo di un IAAS, offre più flessibilità ma maggiore respon
 
 App Engine: parliamo di PAAS, meno flessibilità, ma minore responsabilità
 
-**Quale usare?** Dipende dalla situazione, ho qualcosa di già pronto e voglio portarlo subito in Cloud, App Engine. Se voglio avere maggiore controllo però allora devo scegliere Compute Engine (Creare una vm)
+**Quale usare?** Dipende dalla situazione, ho qualcosa di già pronto e voglio portarlo subito in Cloud? App Engine. Se voglio avere maggiore controllo però allora devo scegliere Compute Engine (IaaS quindi creare una vm e gestirla)
 
 
-## Demo App Engine, lista comandi utili
+## Demo su App Engine e lista comandi utili per utilizzare questa risorsa
 Segue Link ->  [Demo App Engine](Demo/Demo_App_Engine.md)
 
 Altri comandi utili
