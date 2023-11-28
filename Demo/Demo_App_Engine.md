@@ -1,33 +1,36 @@
 # Demo App Engine
 
-**App Engine consente di fare il deploy di un'applicazione su GCP**
+**App Engine consente di fare il deploy di un'applicazione su GCP, velocemente**
 
-Consiglio: creare un nuovo project, in questo modo eliminandolo elimino tutto ciò che c'è connesso ad esso
+Consiglio: creare un nuovo project, in questo modo eliminandolo elimino tutto ciò che c'è connesso ad esso. Inoltre bisogna ricordare che posso avere una sola applicazione per progetto, ma posso avere diversi servizi su di essa e diverse versioni e istanze di questi servizi-
 
-Mi posiziono nel nuovo progetto, per lavorarci
+Dopo aver creato dal portale il nuovo progetto mi posiziono nel nuovo progetto, per lavorarci.
 
-Ricerco App Engine. Per ogni servizio in GCP devo abilitare le API, quindi dovrò abilitare anche le API per App Engine.
+Ricerco App Engine. Per ogni servizio in GCP devo abilitare le API, quindi dovrò abilitare anche le API per App Engine. Api Admin
 
-Durante la creazione devo, scegliere la Region dove fare il deploy, questa è permanente. Posso avere una applicazione per ogni project. Se voglio creare diversi App Engine applications in diverse Regions occorre farlo in diversi projects.
+Durante la creazione della risorsa App Engin, scegliere la Region dove fare il deploy dell'applicazione, questa è permanente. Posso avere una applicazione per ogni project. Se voglio creare diverse App Engine applications in diverse Regions occorre farlo quindi in diversi projects.
 
-Al passo successibo viene richiesto di scelgiere Language (dell'applicazione) ed Environments (di App engine).
+Al passo successivo viene richiesto di scegliere Language (dell'applicazione) ed Environments (di App engine).
 
-Una volta creato, procedo con il caricamento della mia applicazione.
+Una volta creato, procedo con il caricamento della mia applicazione. Per caricarla utilizzo il terminale della console. Aprendo l'editor si apre visual studio code, sul quale lavorare
 
- Cloud Shell-> Open Editor -> Open Folder e carico l'applicazione nell'editor.
+Cloud Shell-> Open Editor -> Open Folder e carico l'applicazione nell'editor. (Se ci sono problemi cambiare browser)
 
-All'interno di essa (nella demo fornita), vi deve essere un file app.yaml con indicazioni specifiche per App Engine, in questo caso la versione del runtime di Python.
+All'interno di essa (nella demo fornita), vi è una folder con l'applicazione e due servizi. Deve essere un file app.yaml con indicazioni specifiche per App Engine, in questo caso la versione del runtime di Python.
+Verrà fatto il deploy di questo.
 
-Una volta caricato devo eseguire una build. Ma prima, mi posiziono nella cartella.
+Una volta caricata la cartella nell'editor. posso vederne il contenuto prima di effettuare la build. 
+
+Una volta caricato devo eseguire una build. Ma prima, mi posiziono nel giusto progetto e nella cartella desiderata da cli.
 
 ```bash
-# Mi posiziono nel giusto project, recuperando l'id dal portale
+# Mi posiziono nel giusto project, recuperando l'id del progetto dal portale
 gcloud config set project "project-id"
 
-# Provo a fare il deploy, che fallirà. Alcune cose vengono caricate per efficienza
+# Provo a fare il deploy, che fallirà. Alcune cose vengono caricate per efficienza, fallirà solo la build
 gcloud app deploy
 
-# La risposta mi spiega perchè è fallito, problema di mancanza di permessi per l'accesso al bucket dello storage su GCP
+# La risposta mi spiega perchè è fallito, problema di mancanza di permessi per l'accesso al bucket dello storage su GCP. In pratica mancanza di permessi del service account su GCS
 
 # Ricerco in GCP, IAM per la gestione dei permessi. E' stato creato un membro in automatico al quale devo concedere anche il Role: Storage Object Viewer
 
@@ -60,7 +63,7 @@ Altri comandi utili
 
 ```
 
-Se carico una versione nuova, la vecchia continua a funzionare fino a quando la nuova non è pronta. 
+Se carico una versione nuova, la vecchia continua a funzionare fino a quando la nuova non è pronta (diverse versioni possono coesistere) 
 
 Successivamente, se non diversamente specificato, tutto il traffico passa sulla nuova versione.
 
