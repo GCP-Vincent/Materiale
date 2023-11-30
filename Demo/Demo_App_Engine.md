@@ -19,7 +19,7 @@ Cloud Shell-> Open Editor -> Open Folder e carico l'applicazione nell'editor. (S
 All'interno di essa (nella demo fornita), vi è una folder con l'applicazione e due servizi. Deve essere un file app.yaml con indicazioni specifiche per App Engine, in questo caso la versione del runtime di Python.
 Verrà fatto il deploy di questo.
 
-Una volta caricata la cartella nell'editor. posso vederne il contenuto prima di effettuare la build. 
+Una volta caricata la cartella nell'editor, posso vederne il contenuto prima di effettuare la build. 
 
 Una volta caricato devo eseguire una build. Ma prima, mi posiziono nel giusto progetto e nella cartella desiderata da cli.
 
@@ -27,7 +27,7 @@ Una volta caricato devo eseguire una build. Ma prima, mi posiziono nel giusto pr
 # Mi posiziono nel giusto project, recuperando l'id del progetto dal portale
 gcloud config set project "project-id"
 
-# Provo a fare il deploy, che fallirà. Alcune cose vengono caricate per efficienza, fallirà solo la build
+# Provo a fare il deploy, che fallirà, andando a leggere se non diversamente specificato un file che si chiama "app.yaml". Se in questo file non è specificato il nome del service, ad esso verrà assegnato il nome "default"- Alcune cose vengono caricate per efficienza, fallirà solo la build
 gcloud app deploy
 
 # La risposta mi spiega perchè è fallito, problema di mancanza di permessi per l'accesso al bucket dello storage su GCP. In pratica mancanza di permessi del service account su GCS
@@ -35,6 +35,7 @@ gcloud app deploy
 # Ricerco in GCP, IAM per la gestione dei permessi. E' stato creato un membro in automatico al quale devo concedere anche il Role: Storage Object Viewer
 
 # Rifacendo il deploy adesso non fallisce
+# Se non diversamente specificato, al servizio verrà assegnato un nome casuale di default
 gcloud app deploy
 
 ```
@@ -50,16 +51,16 @@ Fasi per deploy app:
 
 Altri comandi utili
 ```bash
-- gcloud config set project "project_id"    # set progetto
-- gcloud app deploy              # per deploy applicazione 
+- gcloud config set project "project_id"    # set progetto, appare sul prompt tra parentesi il nome del progetto se tutto ok
+- gcloud app deploy              # per deploy applicazione, il file app.yaml contiene la configurazione, se file diverso va specificato 
 - gcloud app services list       # listato servizi
 - gcloud app versions list       # listato versioni servizio
 - gcloud app instances list      # listato istanze
 
-# deploy versione specifica, per efficienza vengono caricate solo le differenze
+# deploy versione specifica di un servizio, per efficienza vengono caricate solo le differenze
 - gcloud app deploy --version="version_name"  
-- gcloud app browse                           # listato url "attivo", che eroga
-- gcloud app browse --version "version_name"  # url 
+- gcloud app browse                           # url della versione "attiva", che eroga
+- gcloud app browse --version "version_name"  # url della versione specifica 
 
 ```
 
@@ -72,7 +73,3 @@ E' possibile visualizzare l'url della versione attiva
 
 e della versione specifica 
 - gcloud app browse --version "version_name"  
-
-
-
-
