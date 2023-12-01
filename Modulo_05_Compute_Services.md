@@ -4,10 +4,10 @@
 
 Tutti i più importanti Google Cloud Services
 
-- [Google App Engine (GAE)](#app-engine-gae)
-- [Google Kubernetes Engine (GKE)](#kubernetes-engine-gke) 
-- [Google Cloud Functions (GCF)](#cloud-functions-gcf)
-- [Google Cloud Run (GCR)](#cloud-run-gcr)
+- [Google App Engine (GAE)]
+- [Google Kubernetes Engine (GKE)]
+- [Google Cloud Functions (GCF)]
+- [Google Cloud Run (GCR)]
 
 ----
  # App Engine (GAE)
@@ -103,17 +103,29 @@ Segue Link ->  [Demo GKE](Demo/Demo_GKE.md)
 # Cloud Functions (GCF)
 Consente di **eseguire codice in risposta ad un evento**
 
-Risponde alla necessità di voler eseguire del codice quando accade un evento particolare, come il caricamento di un file su Cloud Storage, un error log scritto in Cloud Logging ecc
+Risponde alla necessità di voler eseguire del codice in risposta ad un evento particolare, come il caricamento di un file su Cloud Storage, un error log scritto in Cloud Logging ecc
 
-Codice scritto in Node.js, Python, Go, Java, .NET e Ruby
 
-Nessun problema di scalabilità
+
+Il codice può essere scritto in Node.js, Python, Go, Java, .NET e Ruby
+
+Nessun problema di scalabilità, gestisce Google Cloud Platform
 
 - **Pay only for what you use**: Numero di invocazioni, tempo e uso di risorse
 
-- **Time Bound**: nella 1st gen max 540 secondi e 8GB di Ram allocabile, nella 2nd gen max 60 minuti e molta più RAM
+- **Time Bound**: nella 1st gen max 540 secondi e 8GB di Ram allocabile, nella 2nd gen max 60 minuti e molta più RAM 16 GB. 
 
+- Due versioni:
+    - Cloud Functions (1st gen): First version
+        - Consente di avere 1 richiesta per istanza 
+        - No traffic splitting
+    - Cloud Functions (2st gen): New version costruita sopra Cloud Run
+        - Consente di avere 1000 richieste concorrenti per istanza 
+        - Traffic splitting e molteplici versioni (essendoci Cloud Run sotto la scocca)
+        - Supporto ad oltre 90 eventi scatenanti
+        
 - **Ogni esecuzione avviene in istanze separate**, non vi è condivisione diretta
+
 
 ## Demo Cloud Functions 
 **Creazione di un oggetto per la risposta ad un evento** 
@@ -126,6 +138,8 @@ Nessun problema di scalabilità
  Nella pagina successiva inserisco il codice da eseguire e il tipo di runtime collegato al linguaggio utilizzato.
 
  Posso testare il codice, vedendo anche log e varie metriche connesse: tempi di risposta, memoria usata ecc.
+
+ Se scelgo version:2 posso andare a modificare anche la versione e decidere come separare il traffico (Cloud Run)
 
 # Cloud Run (GCR)
 Idea di fondo : **"Container to Production in Seconds"**
