@@ -93,7 +93,7 @@ Offre le più importanti features per orchestrare containers:
 Nella creazione del cluster, abbiamo due modalità
 - **Standard** per avere la piena responsabilità sui nodi, **pay-per-node**
 
-- **Autopilot** per delegare a GKE la gestione del cluster  e **pay-per-pod**
+- **Autopilot** per delegare a GKE la gestione del cluster, **pay-per-pod**
 
 ----
 
