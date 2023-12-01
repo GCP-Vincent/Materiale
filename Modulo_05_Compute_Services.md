@@ -13,7 +13,7 @@ Tutti i più importanti Google Cloud Services
  # App Engine (GAE)
  Prima versione rilasciata nel 2008 
  
- Consente di fare il **deploy** e **scalare facilemente** le **applicazioni** in GCP
+ Consente di fare il **deploy** e **scalare facilmente** le **applicazioni** in GCP
 
  Supporta una moltitudine di linguaggi: Go, Java, .NET, PHP, Python, Ruby ecc
 
@@ -73,7 +73,7 @@ Altri comandi utili
 
 Kubernetes rappresenta lo strumento open source più famoso per orchestrare containers, GKE è il servizio gestito offerto da GCP per Kubernetes.
 
-K8s, nomignolo di Kubernetes, permette di gestire un cluster, un insieme di nodi, inclusi gli aggiornamenti.
+K8s, nomignolo di Kubernetes, permette di gestire un cluster, ovvero un insieme di nodi, inclusi gli aggiornamenti.
 
 Offre le più importanti features per orchestrare containers:
 - Auto scaling
