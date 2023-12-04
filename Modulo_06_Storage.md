@@ -14,7 +14,7 @@ Modalità di Storage in Google Cloud Platform
 - [Trasferimento dati da on-premises al Cloud](#trasferimento-from-on-premises-to-cloud)
 
 
-
+Vediamo le differenze principali tra i concetti di Block Storage e File Storage, per poi vedere i servizi presenti in GCP che si basano su questi concetti
 # Block Storage
 Caso d'uso, hard disk collegato ai pc
 
@@ -23,21 +23,31 @@ Tipicamente **un solo Block Storage** connesso ad **un solo virtual server**
 **N.B**
 Eccezione, solo Read Only Block devices possono essere connessi a più virtual server, alcuni cloud providers stanno provando anche quelli in scrittura
 
-Tuttavia è possibile connettere **molteplici Block Storage** devices ad **un virtual server**
+Tuttavia è possibile connettere **molteplici Block Storage** dispositivi ad **un virtual server**
 
 ![block_storage](Images/Block_storage.png)
 
 Utilizzo di questo:
 - Direct-attached storage (DAS) - simile ad hard disk
-- Storage Area Network (NAS) - High-speed connecting ad un pool di storage devices
+- Storage Area Network (SAN) - High-speed connecting ad un pool di storage devices
 
 ## **In GCP**
- **Persistent Disks**: Network Block Storage, è possibile connettere una vm a questo tipo di disco, presente da qualche parte sulla rete. 
+La prima opzione presente in GCP per Block Storage è 
+
+ **Persistent Disks**: Block Storage sulla rete, è possibile connettere una Vm a questo tipo di dischi, presenti da qualche parte sulla rete. Il loro ciclo di vita non è legato a quella della VM
+Di default ne abbiamo uno connesso alla VM quando la creiamo (Boot Disk da 10GB)
+
+Sono molto flessibili: posso aumentarne la dimensione in base alle necessità. Le performance migliorano con la grandezza. Sono indipendenti dalla VM, come ciclo di vita (non sono effimeri). 
+Due tipi di persistent disks: cambia il modo in cui i dati vengono replicati. Supportano gli snapshots. Come contro sono più lenti (network latency) rispetto ai Local SSDs
 
      - Zonal: Dati replicati in una singola zona
-     - Regional: Dati replicati in molteplici zone, nella stessa Region
+     - Regional: Dati replicati in molteplici zone, nella stessa Region. Tipicamente costo 2x rispetto Zonal
     
- **Local SSD**: Local Block Storage, collocato dove vi è l'host che ospita la VM. Quindi velocità superiore. Tuttavia i dati archiviati su un'unità ssd locale rimangono finché l'istanza non viene arrestata o eliminata. Utilizzali quando hai bisogno di una disco temporaneo o di una cache rapida
+ **Local SSD**: Local Block Storage, collocato fisicamente sull'host che ospita la VM. Quindi velocità superiore. Tuttavia i dati archiviati su un'unità ssd locale rimangono finché l'istanza della Vm non viene arrestata o eliminata. Utilizzali quando hai bisogno di un disco temporaneo o di una cache rapida. I dati sono automaticamnete cifrati, ma è possibile configurare delle chiavi diverse. Non tutte le VMs supportano questo tipo di supporto.
+Quindi Vantaggi: velocità
+Contro: dati non persistenti, non supportano snapshots di conseguenza
+
+Per avere maggiori performance è meglio scegliere Local SSDs molto capienti
 
 Per approfondire su dimensioni e tipologia https://cloud.google.com/compute/docs/disks
 
@@ -50,14 +60,16 @@ Per approfondire su dimensioni e tipologia https://cloud.google.com/compute/docs
 Una Enterprise necessita di un modo veloce per condividere files in modo sicuro e organizzato.
 
 Questi files chiaramente sono condivisi su diversi virtual servers
+
 Quindi tipicamente **tanti devices Block Storage** connessi ad **tanti virtual servers**
 
 
 ![file_storage](Images/File_storage.png)
 
 ## **In GCP**
- ## **Filestore**: High Performace File Storage 
+Per quanto riguarda i File Storage in GCP abbiamo:
 
+ ## **Filestore**: Servizio di archiviazione files ad alte prestazioni  
 
 **N.B** 
  Creo un oggetto Filestore, attivo le API, e ne creo un'istanza. 
