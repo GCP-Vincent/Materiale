@@ -4,7 +4,7 @@
 - [Instance Groups](#instance-groups) 
 - [Load Balancing](#google-cloud-load-balancing)
 
-# Compute Engine Service 
+# Compute Engine 
  
 Servizio che consente di creare e gestire macchine virtuali in GCP, Google Cloud Platform
 
