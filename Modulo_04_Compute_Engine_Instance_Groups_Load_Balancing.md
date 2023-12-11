@@ -90,7 +90,7 @@ Non sono supportate alcune tipologie di macchine, come le E2 e A2
 Non vengono applicati se le istanze sono state create con 
 **[App Engine (flexible)](Modulo_5_Compute_Services.md\#app-engine-gae) e Dataflow**
 
-![Alt text](Images/sustained_use_discount.png)
+![Alt text](/Images/sustained_use_discount.png)
 
 ### Committed Use Discounts -> sconti per workloads con uso predicibile
 
@@ -128,7 +128,7 @@ Di default singoli host possono contenere istanze di clienti diversi.
 
 Un Sole-Tenant Node consente di avere hw dedicato
  
-![Alt text](Images/sole-tenant_node.png)
+![Alt text](/Images/sole-tenant_node.png)
 
 Casi d'uso:
 - Security e compliance requirements: voglio avere VMs fisicamente separate da altri progetti
@@ -196,11 +196,11 @@ Due tipologie:
 - **Managed**: VMs identiche create usando un template (MIG)
     - features: autoscaling, auto healing, managed releases
     
-    ![Alt text](Images/MIG.png)
+    ![Alt text](/Images/MIG.png)
 - **Unmanaged**: VMs differenti
     - non offrono le features del MIG
 
-    ![Alt text](Images/Unmanaged.png)
+    ![Alt text](/Images/Unmanaged.png)
 
     
 
