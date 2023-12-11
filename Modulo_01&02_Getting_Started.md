@@ -46,7 +46,7 @@ Le Zones nella stessa Region sono connesse a bassissima latenza.
 ## Zone
 Ad oggi 115 Zones. Una Zone è un datacenter. Ogni Zone dispone di almeno 1 cluster, ovvero un insieme di risorse hosted in un datacenter. 
 
-![Alt text](Images/Regions_zones.png)
+![Alt text](/Images/Regions_zones.png)
 
 
 
