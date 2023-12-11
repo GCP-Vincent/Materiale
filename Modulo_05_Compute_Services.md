@@ -4,13 +4,13 @@
 
 Tutti i più importanti Google Cloud Services
 
-- [Google App Engine (GAE)]
-- [Google Kubernetes Engine (GKE)]
-- [Google Cloud Functions (GCF)]
-- [Google Cloud Run (GCR)]
+- [Google App Engine](#app-engine)
+- [Google Kubernetes Engine](#kubernetes-engine)
+- [Google Cloud Functions](#cloud-functions)
+- [Google Cloud Run (GCR)](#cloud-run)
 
 ----
- # App Engine (GAE)
+ # App Engine
  Prima versione rilasciata nel 2008 
  
  Consente di fare il **deploy** e **scalare facilmente** le **applicazioni** in GCP
@@ -69,7 +69,7 @@ Altri comandi utili
 
 ```
 ----
-# Kubernetes Engine (GKE)
+# Kubernetes Engine
 
 Kubernetes rappresenta lo strumento open source più famoso per orchestrare containers, GKE è il servizio gestito offerto da GCP per Kubernetes.
 
@@ -100,7 +100,7 @@ Nella creazione del cluster, abbiamo due modalità
 ## Demo Kubernetes Engine, lista comandi utili 
 Segue Link ->  [Demo GKE](Demo/Demo_GKE.md)
 
-# Cloud Functions (GCF)
+# Cloud Functions
 Consente di **eseguire codice in risposta ad un evento**
 
 Risponde alla necessità di voler eseguire del codice in risposta ad un evento particolare, come il caricamento di un file su Cloud Storage, un error log scritto in Cloud Logging ecc
@@ -141,7 +141,7 @@ Nessun problema di scalabilità, gestisce Google Cloud Platform
 
  Se scelgo version:2 posso andare a modificare anche la versione e decidere come separare il traffico (Cloud Run)
 
-# Cloud Run (GCR)
+# Cloud Run
 Idea di fondo : **"Container to Production in Seconds"**
  
 Senza dover creare un cluster, gestirlo, ecc.
