@@ -38,7 +38,7 @@ Con as-a-Service si indica in genere un servizio di cloud computing gestito da u
 
 
 # Service Models
-![Alt text](Images/as-a-Service.png)
+![Alt text](/Images/as-a-Service.png)
 
 ## IaaS
 
@@ -157,7 +157,7 @@ Un altro grande vantaggio, oltre alla portabilità, è dato dalla leggerezza, se
 
 I containers sono inoltre isolati, gli uni dagli altri. 
 
-![Alt text](<Images/VMs vs containers.png>)
+![Alt text](/Images/VMs vs containers.png)
 
 # Orchestrator
 
@@ -174,4 +174,4 @@ L'orchestratore tipicamente offre:
 Tutti i principali cloud provider forniscono servizi gestiti di Kubernetes (EKS di AWS, GKE per Google, AKS per Azure)
 
 
-![Alt text](Images/orchestrator.png)
+![Alt text](/Images/orchestrator.png)
