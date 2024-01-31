@@ -20,7 +20,7 @@ I principali attori in questo mondo, quindi i maggiori cloud providers, sono: Am
 E' possibile fare una account di prova su tutte le piattaforme, in particolare per Google Cloud Platform, la prova concede 300$ di crediti e l'uso di oltre 20 servizi.
 
 # Zones & Regions
-Alcuni termini che ritroviamo spesso, che cambiano di poco, in termini numerici, in base al cloud provider, sono quelli di Region e Zone.
+Alcuni termini che ritroviamo spesso, che cambiano di poco, in termini numerici in base al cloud provider, sono quelli di Region e Zone.
 
 Questi concetti sono necessari per avere
 
